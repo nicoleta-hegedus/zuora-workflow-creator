@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "zuora-workflow-creator": {
+      "source": {
+        "source": "github",
+        "repo": "nicoleta-hegedus/zuora-workflow-creator"
+      }
+    }
+  }
+}

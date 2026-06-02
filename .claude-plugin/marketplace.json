@@ -1,0 +1,18 @@
+{
+  "name": "zuora-workflow-creator",
+  "owner": {
+    "name": "nicoleta-hegedus"
+  },
+  "metadata": {
+    "description": "Zuora Workflow creator skill for Claude Cowork — design, build, import, and run Zuora Workflows",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "zuora-workflow-creator",
+      "source": "./plugins/zuora-workflow-creator",
+      "version": "1.0.0",
+      "description": "Design and build Zuora Workflows — task chains (Query, Export, Callout, Email, Iterate, JSONTransform), triggers, Liquid templates, JSONata transforms, and full import/run lifecycle via MCP tools."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "zuora-workflow-creator",
+  "version": "1.0.0",
+  "description": "Design and build Zuora Workflows — task chains (Query, Export, Callout, Email, Iterate, JSONTransform), triggers, Liquid templates, JSONata transforms, and full import/run lifecycle via MCP tools.",
+  "author": {
+    "name": "nicoleta-hegedus"
+  }
+}
