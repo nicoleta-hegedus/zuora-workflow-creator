@@ -27,7 +27,7 @@ Interactive playground: http://try.jsonata.org/
 
 ## Overview
 
-JSONata is used in Zuora Workflow **Logic::JSONTransform** tasks. The JSONata expression is placed in the task's `template` field with `processor: "JSONata"`. The output is stored at `Data.JSONTransform` (or a custom `placement`) and can be passed to subsequent Callout tasks via `{{ Data.JSONTransform | to_json }}`.
+JSONata is used in Zuora Workflow **Logic::JSONTransform** tasks. The JSONata expression is placed in the task's `template` field with `processor: "JSONata"` and `version: "2.2.2"` (the latest JSONata version Zuora offers as of 2026-11-26 — every new task must carry the `version` key, see `task-types.md`). The output is stored at `Data.JSONTransform` (or a custom `placement`) and can be passed to subsequent Callout tasks via `{{ Data.JSONTransform | to_json }}`.
 
 Key concepts:
 - JSONata is a **superset of JSON** — any valid JSON is a valid JSONata expression

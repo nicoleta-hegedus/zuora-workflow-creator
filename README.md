@@ -68,15 +68,16 @@ Create a scheduled workflow to retry failed payments
 
 ### How it works
 
-The skill uses Zuora MCP tools (`manage_workflows`, `run_workflows`, `query_objects`, `ask_zuora`) to interact directly with your Zuora tenant. It follows a 7-step process:
+The skill uses Zuora MCP tools (`manage_workflows`, `run_workflows`, `query_objects`, `ask_zuora`) to interact directly with your Zuora tenant. It follows an 8-step process:
 
 1. **Understand** the requirement
 2. **Research** the tenant (existing workflows, object IDs, custom fields)
 3. **Design** the task chain
-4. **Build** the workflow JSON definition
-5. **Define** linkages between tasks
-6. **Import** and activate
-7. **Test** and monitor
+4. **Verify** field writability for the planned update endpoint
+5. **Build** the workflow JSON definition
+6. **Define** linkages between tasks
+7. **Import** and activate
+8. **Test** and monitor
 
 ---
 

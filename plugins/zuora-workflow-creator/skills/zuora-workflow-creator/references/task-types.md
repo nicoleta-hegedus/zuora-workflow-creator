@@ -393,6 +393,7 @@ Transforms data using JSONata expressions. Used to reshape data before a Callout
     "template": "{\n  \"subscribes\": [{\n    \"Account\": { \"Id\": \"{{Data.Account[0].Id}}\" },\n    \"SubscriptionData\": {\n      \"Subscription\": {\n        \"ContractEffectiveDate\": \"\",\n        \"Status\": \"Draft\",\n        \"AutoRenew\": $.Callout.autoRenew,\n        \"TermType\": $.Callout.termType\n      },\n      \"RatePlanData\": [\n        $.Callout.ratePlans.({\n          \"RatePlan\": { \"ProductRatePlanId\": $.productRatePlanId },\n          \"RatePlanChargeData\": [\n            $.ratePlanCharges.({\n              \"RatePlanCharge\": {\n                \"ProductRatePlanChargeId\": $.productRatePlanChargeId,\n                \"Price\": $.price\n              }\n            })\n          ]\n        })\n      ]\n    }\n  }]\n}",
     "placement": "JSONTransform",
     "processor": "JSONata",
+    "version": "2.2.2",
     "csv_headers": "",
     "strict_variables": "true",
     "disable_validation": "false"
@@ -411,6 +412,7 @@ Transforms data using JSONata expressions. Used to reshape data before a Callout
 - `template`: The JSONata expression. Mix of literal JSON and JSONata syntax (`$.Callout.field`, conditionals with `? :`, array mapping).
 - `placement`: Where to store the result. Default `"JSONTransform"` → accessible as `Data.JSONTransform`.
 - `processor`: Always `"JSONata"`.
+- `version`: The JSONata engine version, as a string. **Always include it in every new JSONata task**, set to the latest version Zuora offers — `"2.2.2"` as of 2026-11-26 (Zuora supports only 2.2.2 for JSON Transform tasks created after September 18, 2026). The key sits in `parameters` next to `processor`; this is how the Zuora UI writes it in tenant exports. Tasks built before that date have no `version` key and run on the older engine — when copying such a task into a new workflow, add the key and re-test the expression. If a newer version becomes available (check the [Logic: JSON Transform](https://docs.zuora.com/zuora-platform/extensibility/workflow/create-and-manage-workflow-definitions/workflow-reference/workflow-task-reference/logic-json-transform) page or the `version` value on a JSONTransform task recently created in the tenant UI), use it and update this file.
 
 **Using the output:** In the next Callout task, reference it as `{{Data.JSONTransform | to_json}}` in the `raw_body`.
 
