@@ -48,7 +48,9 @@ jobs:
         if: steps.tag_check.outputs.exists == 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.version.outputs.tag }}
+          NOTES: ${{ steps.changelog.outputs.notes }}
         run: |
-          gh release create "${{ steps.version.outputs.tag }}" \
-            --title "${{ steps.version.outputs.tag }} — zuora-workflow-creator" \
-            --notes "${{ steps.changelog.outputs.notes }}"
+          gh release create "$TAG" \
+            --title "$TAG — zuora-workflow-creator" \
+            --notes "$NOTES"
